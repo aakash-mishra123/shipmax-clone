@@ -1,0 +1,26 @@
+body {
+  margin: 0px;
+  background: #f4f8fd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* @media screen and (min-width: 1024px) {
+  body {
+    padding-bottom: 140px;
+  }
+} */
+
+
+@media (min-width: 1024px) and (max-width:1024px) {
+  body {
+    padding-bottom: 140px;
+  }
+}
+
+
+.swal2-container.swal2-center.swal2-backdrop-show {
+  z-index: 9999;
+}
