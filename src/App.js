@@ -4,6 +4,7 @@ import Navbar from './components/checknav';
 import Footer from './components/Footer';
 import ContactUsForm from './components/ContactUsForm';
 import Solution from './components/Solutions/Solutions';
+import CentralizedCatalogue from './components/Solutions/CentralizedCatalogue';
 import './index.css';
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/contact-us" element={<ContactUsForm />} />
         <Route path="/solutions" element={<Solution />} />
+        <Route path="/solutions/centralized-catalogue" element={<CentralizedCatalogue />} />
       </Routes>
       <Footer />
     </Router>

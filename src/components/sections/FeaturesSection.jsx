@@ -120,11 +120,12 @@ const FeaturesSection = () => {
     <section className="features-section">
       <Container sx={{ maxWidth: '90% !important', width: '90% !important' }}>
         <Typography
-          variant="h4"
+          fontSize={"40px"}
           align="center"
           sx={{
-            fontWeight: 400,
-            my: 4,
+            fontWeight: 300,
+            mt: 1,
+            mb: 3,
             color: '#222',
             fontFamily: 'Inter, sans-serif',
           }}
@@ -141,13 +142,13 @@ const FeaturesSection = () => {
           scrollButtons="auto"
           align="center"
           sx={{
-            mb: 4,
+            mb: 12,
             '& .MuiTabs-list': {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               borderBottom: '2px solid #00000029',
-              width: 'fit-content',
+              width: '80%',
             },
             '& .MuiTab-root': {
               fontWeight: 600,

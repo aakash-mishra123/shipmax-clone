@@ -8,12 +8,12 @@ const UpdatesSection = () => {
       className="updates-section"
       style={{
         background: '#FFFFFF',
-        padding: '48px 0',
+        // padding: '48px 0',
       }}
     >
-      <Container>
-        <Grid container spacing={4} alignItems="center">
-          <Grid item xs={12} md={6}>
+      <Container maxWidth="xl">
+        <Grid container spacing={6} alignItems="center">
+          <Grid item xs={12} md={6} style={{ maxWidth: '90% !important', width: '90% !important' }}>
             <Box
               sx={{
                 display: 'flex',
@@ -25,10 +25,9 @@ const UpdatesSection = () => {
                 src={realTimeImg}
                 alt="Real-time Updates"
                 sx={{
-                  width: '100%',
-                  maxWidth: 420,
-                  borderRadius: '24px',
-                  border: '6px solid #FFB940',
+                  width: 720,
+                  maxWidth: 720,
+                  borderRadius: '60px',
                   background: '#fff',
                   objectFit: 'cover',
                   boxSizing: 'border-box',
@@ -36,11 +35,11 @@ const UpdatesSection = () => {
               />
             </Box>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={6} textAlign='left'>
             <Typography
               variant="h4"
               sx={{
-                fontWeight: 500,
+                fontWeight: 400,
                 mb: 1,
                 color: '#111',
                 fontFamily: 'Inter, sans-serif',
@@ -51,7 +50,7 @@ const UpdatesSection = () => {
             <Typography
               variant="h4"
               sx={{
-                fontWeight: 700,
+                fontWeight: 800,
                 color: '#FFB940',
                 mb: 2,
                 fontFamily: 'Inter, sans-serif',

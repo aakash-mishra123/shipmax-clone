@@ -4,10 +4,58 @@ import logo from "../assets/shipmaxx-logo.png";
 import { useState } from 'react';
 import { FaMapMarkedAlt, FaCubes, FaShippingFast, FaListAlt, FaWarehouse, FaProjectDiagram, FaLayerGroup, FaRetweet, FaBalanceScale } from 'react-icons/fa';
 
+// Modular TabDialog component
+function TabDialog({ open, onOpen, onClose, items, dialogSx }) {
+  return (
+    <Dialog
+      open={open}
+      onClose={onClose}
+      PaperProps={{
+        sx: {
+          borderRadius: '24px',
+          mt: '60px',
+          boxShadow: '0 8px 32px 0 #00000029',
+          p: 3,
+          ...dialogSx,
+        }
+      }}
+      hideBackdrop
+      sx={{
+        '& .MuiDialog-container': {
+          alignItems: 'flex-start',
+        }
+      }}
+    >
+      <Paper
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        sx={{
+          borderRadius: '24px',
+          boxShadow: 'none',
+          p: 3,
+          background: '#fff',
+        }}
+      >
+        <Grid container spacing={2}>
+          {items.map((item, idx) => (
+            <Grid item xs={12} sm={4} key={idx} sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1 }}>
+              {item.icon}
+              <Typography sx={{ color: '#222', fontWeight: 500, fontSize: 16 }}>
+                {item.label}
+              </Typography>
+            </Grid>
+          ))}
+        </Grid>
+      </Paper>
+    </Dialog>
+  );
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [openCompany, setOpenCompany] = useState(false);
+  const [openFAQ, setOpenFAQ] = useState(false);
 
-  // Solutions data for dialog
   const solutions = [
     { icon: <FaMapMarkedAlt color="#f8b217" size={28} />, label: "Pan India Delivery" },
     { icon: <FaListAlt color="#f8b217" size={28} />, label: "Centralized Cataloging" },
@@ -20,11 +68,19 @@ export default function Navbar() {
     { icon: <FaBalanceScale color="#f8b217" size={28} />, label: "Reconciliation" },
   ];
 
+  const companyLogos = [
+    { icon: <FaMapMarkedAlt color="#f8b217" size={28} />, label: "Pan India Delivery" },
+    { icon: <FaListAlt color="#f8b217" size={28} />, label: "Centralized Cataloging" },
+  ];
+  const faqLogos = [
+    { icon: <FaMapMarkedAlt color="#f8b217" size={28} />, label: "Pan India Delivery" },
+  ];
+
   return (
     <Box
       sx={{
         backgroundColor: '#ffffff',
-        height: '80px',
+        height: '60px',
         width: '100%',
         display: 'flex',
         alignItems: 'center',
@@ -40,6 +96,8 @@ export default function Navbar() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          width: '90% !important',
+          maxWidth: '90% !important',
         }}
       >
         <Link to="/">
@@ -55,62 +113,75 @@ export default function Navbar() {
 
         <Box sx={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', gap: '24px' }}>
-            <span
-              style={{ textDecoration: 'none', color: '#f8b217', fontWeight: 500, cursor: 'pointer', position: 'relative' }}
+            <button
+              style={{
+                textDecoration: 'none',
+                color: '#f8b217',
+                fontWeight: 500,
+                cursor: 'pointer',
+                position: 'relative',
+                background: 'none',
+                border: 'none',
+                padding: '0 8px',
+              }}
               onMouseEnter={() => setOpen(true)}
               onMouseLeave={() => setTimeout(() => setOpen(false), 200)}
             >
               Solutions
-              <Dialog
+              <TabDialog
                 open={open}
+                onOpen={() => setOpen(true)}
                 onClose={() => setOpen(false)}
-                PaperProps={{
-                  sx: {
-                    borderRadius: '24px',
-                    mt: '60px',
-                    ml: '80px',
-                    boxShadow: '0 8px 32px 0 #00000029',
-                    minWidth: 600,
-                    maxWidth: 800,
-                    p: 3,
-                  }
-                }}
-                hideBackdrop
-                sx={{
-                  '& .MuiDialog-container': {
-                    alignItems: 'flex-start',
-                  }
-                }}
-              >
-                <Paper
-                  onMouseEnter={() => setOpen(true)}
-                  onMouseLeave={() => setOpen(false)}
-                  sx={{
-                    borderRadius: '24px',
-                    boxShadow: 'none',
-                    p: 3,
-                    background: '#fff',
-                  }}
-                >
-                  <Grid container spacing={2}>
-                    {solutions.map((item, idx) => (
-                      <Grid item xs={12} sm={4} key={idx} sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1 }}>
-                        {item.icon}
-                        <Typography sx={{ color: '#222', fontWeight: 500, fontSize: 16 }}>
-                          {item.label}
-                        </Typography>
-                      </Grid>
-                    ))}
-                  </Grid>
-                </Paper>
-              </Dialog>
-            </span>
-            <Link to="/" style={{ textDecoration: 'none', color: '#333333', fontWeight: 500 }}>
+                items={solutions}
+                dialogSx={{ ml: '100px' }}
+              />
+            </button>
+            <button
+              style={{
+                textDecoration: 'none',
+                color: '#333333',
+                fontWeight: 500,
+                cursor: 'pointer',
+                position: 'relative',
+                background: 'none',
+                border: 'none',
+                padding: '0 8px',
+              }}
+              onMouseEnter={() => setOpenCompany(true)}
+              onMouseLeave={() => setTimeout(() => setOpenCompany(false), 200)}
+            >
               Company
-            </Link>
-            <Link to="/" style={{ textDecoration: 'none', color: '#333333', fontWeight: 500 }}>
+              <TabDialog
+                open={openCompany}
+                onOpen={() => setOpenCompany(true)}
+                onClose={() => setOpenCompany(false)}
+                items={companyLogos}
+                dialogSx={{ ml: '240px' }}
+              />
+            </button>
+            <button
+              style={{
+                textDecoration: 'none',
+                color: '#333333',
+                fontWeight: 500,
+                cursor: 'pointer',
+                position: 'relative',
+                background: 'none',
+                border: 'none',
+                padding: '0 8px',
+              }}
+              onMouseEnter={() => setOpenFAQ(true)}
+              onMouseLeave={() => setTimeout(() => setOpenFAQ(false), 200)}
+            >
               Resources
-            </Link>
+              <TabDialog
+                open={openFAQ}
+                onOpen={() => setOpenFAQ(true)}
+                onClose={() => setOpenFAQ(false)}
+                items={faqLogos}
+                dialogSx={{ ml: '360px' }}
+              />
+            </button>
           </Box>
           <Link to="/contact-us" style={{
             textDecoration: 'none',

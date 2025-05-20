@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Typography } from '@mui/material';
 import shiprocketDb from '../../assets/images/shiprocket-dashboard.png';
-
 const HeroSection = () => {
   return (
     <section className="hero-section">
@@ -11,14 +10,15 @@ const HeroSection = () => {
           <Grid item xs={12} md={6}>
             <Typography variant="h1" className="main-title">
               Maximize eCommerce orders
-              <span className="highlight" fontWeight={100}>with 3-step shipping</span>
+              <span className="highlight" style={{ fontWeight: '20', fontSize: '60px' }}>with 3-step shipping</span>
             </Typography>
             <Typography variant="body1" fontWeight={200} className="description">
               Streamline your eCommerce journey with our all-in-one order management and shipping Solution
             </Typography>
+            {/**connect buttons */}
             <div className="cta-buttons">
-              <Link to="/contact" className="btn-primary">Let's Connect</Link>
-              <Link to="/signup" className="btn-secondary">Sign Up</Link>
+              <Link to="/contact-us" className="btn-primary">Let's Connect</Link>
+              <Link to="/signup" className="btn-secondary">SignUp</Link>
             </div>
           </Grid>
           <Grid item xs={12} md={6} >

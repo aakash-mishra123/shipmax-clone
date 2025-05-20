@@ -45,7 +45,7 @@ const JourneySection = () => {
     <section className="journey-section">
       <Container sx={{ maxWidth: '85% !important', width: '85% !important' }}>
         <Typography
-          variant="h4"
+          variant="h3"
           align="center"
           sx={{
             fontWeight: 400,
@@ -90,34 +90,30 @@ const JourneySection = () => {
               {cards.map((card, idx) => (
                 <Box
                   key={card.key}
-                  className={`feature-card${idx === activeIndex ? ' active' : ''}`}
+                  className="feature-card"
                   sx={{
-                    background: idx === activeIndex
+                    backgroundColor: idx === activeIndex
                       ? (card.highlight ? '#f8b217' : '#fff')
                       : '#f7f7f7',
-                    color: idx === activeIndex
-                      ? (card.highlight ? '#fff' : '#222')
-                      : '#222',
-                    boxShadow: '0 4px 24px  #00000014',
+                    color: idx === activeIndex && card.highlight ? '#fff' : '#222',
+                    boxShadow: '0 4px 24px #00000014',
                     cursor: 'pointer',
                     borderRadius: '24px',
                     padding: '32px 36px',
-                    transition: 'background 0.3s cubic-bezier(.4,0,.2,1), color 0.3s cubic-bezier(.4,0,.2,1), transform 0.1s cubic-bezier(.4,0,.2,1)',
+                    transition: 'transform 0.3s ease, background-color 0.3s ease',
+                    transform: idx === activeIndex ? 'scale(1.1)' : 'scale(1)',
+                    position: 'relative',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'flex-start',
-                    transform: idx === activeIndex ? 'scale(1.1)' : 'scale(1)',
-                    // zIndex: idx === activeIndex ? 2 : 1,
-                    position: 'relative',
                   }}
                   onClick={() => setActiveIndex(idx)}
                 >
                   <Typography
                     variant="h6"
-                    className="feature-title"
                     sx={{
                       fontWeight: 700,
-                      marginBottom: 1,
+                      mb: 1,
                       color: idx === activeIndex && card.highlight ? '#fff' : '#222',
                       fontSize: '1.3rem',
                       fontFamily: 'Inter, sans-serif',
@@ -127,7 +123,6 @@ const JourneySection = () => {
                   </Typography>
                   <Typography
                     variant="body1"
-                    className="feature-description"
                     sx={{
                       color: idx === activeIndex && card.highlight ? '#fff' : '#666',
                       fontWeight: 400,
@@ -139,6 +134,7 @@ const JourneySection = () => {
                   </Typography>
                 </Box>
               ))}
+
             </Box>
           </Grid>
         </Grid>
