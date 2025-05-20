@@ -283,6 +283,12 @@ section {
 
 .hero-image {
   width: 100%;
+  margin-left: 25%;
   max-width: 500px;
   height: auto;
+}
+
+.contact-us-form {
+  padding-bottom: 60px;
+  background-color: #ffffff;
 }

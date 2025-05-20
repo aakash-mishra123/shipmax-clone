@@ -6,24 +6,22 @@ import shiprocketDb from '../../assets/images/shiprocket-dashboard.png';
 const HeroSection = () => {
   return (
     <section className="hero-section">
-      <Container>
-        <Grid container spacing={4} alignItems="center">
+      <Container sx={{ maxWidth: '90% !important', width: '90% !important' }}>
+        <Grid container spacing={4} alignItems="center" >
           <Grid item xs={12} md={6}>
             <Typography variant="h1" className="main-title">
-              Maximize eCommerce <br />
-              orders
-              <span className="highlight">with 3-step shipping</span>
+              Maximize eCommerce orders
+              <span className="highlight" fontWeight={100}>with 3-step shipping</span>
             </Typography>
-            <Typography variant="body1" className="description">
-              Streamline your eCommerce journey with our all-in-one order management <br />
-              and shipping Solution
+            <Typography variant="body1" fontWeight={200} className="description">
+              Streamline your eCommerce journey with our all-in-one order management and shipping Solution
             </Typography>
             <div className="cta-buttons">
               <Link to="/contact" className="btn-primary">Let's Connect</Link>
               <Link to="/signup" className="btn-secondary">Sign Up</Link>
             </div>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={6} >
             <img src={shiprocketDb} alt="ShipMaxx Dashboard" className="hero-image" />
           </Grid>
         </Grid>

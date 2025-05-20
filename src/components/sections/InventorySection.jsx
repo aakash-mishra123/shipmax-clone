@@ -48,7 +48,7 @@ const InventorySection = () => {
             >
               Easily track and manage your inventory across all pickup locations from one integrated warehouse management system
             </Typography>
-            <Link to="/learn-more">
+            <Link to="/contact-us">
               <Button
                 variant="contained"
                 sx={{

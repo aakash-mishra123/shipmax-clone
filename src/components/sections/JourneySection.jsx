@@ -3,7 +3,7 @@ import { Container, Grid, Typography, Box } from '@mui/material';
 import mapImg from '../../assets/images/map.png';
 import workflowImg from '../../assets/images/workflow.png';
 import orderProcessingImg from '../../assets/images/orderProcessingStep.png';
-
+import '../Home.styles.css';
 // Card data for easy switching
 const cards = [
   {
@@ -12,7 +12,7 @@ const cards = [
     description: 'Easily update and track your inventory across all eCommerce platforms from one convenient dashboard.',
     img: mapImg,
     alt: 'Product Catalog',
-    highlight: false,
+    highlight: true,
   },
   {
     key: 'shipping',
@@ -20,13 +20,13 @@ const cards = [
     description: 'Easily manage multiple pickup locations and couriers for one customer under a single order ID, ensuring quick and efficient order delivery.',
     img: workflowImg,
     alt: 'Multi-portal Shipping',
-    highlight: false,
+    highlight: true,
   },
   {
     key: 'processing',
     title: 'Quick 3-step order processing',
     description: (
-      <Box component="div" sx={{ textAlign: 'left' }}>
+      <Box component="div" sx={{ textAlign: 'left', fontSize: '16px', color: 'black' }}>
         <div>Step 1: Automatic order confirmation: Quickly accept and confirm orders.</div>
         <div>Step 2: Courier comparison: Choose the best courier for fast & efficient shipping.</div>
         <div>Step 3: One-click dispatch: Process and ship orders with a single click.</div>
@@ -43,36 +43,72 @@ const JourneySection = () => {
 
   return (
     <section className="journey-section">
-      <Container>
-        <Typography variant="h2" className="section-title">
-          How ShipMaxx simplifies your <span className="highlight">eCommerce journey</span>
+      <Container sx={{ maxWidth: '85% !important', width: '85% !important' }}>
+        <Typography
+          variant="h4"
+          align="center"
+          sx={{
+            fontWeight: 400,
+            mb: 8,
+            color: '#222',
+            fontFamily: 'Inter, sans-serif',
+          }}
+        >
+          How Shipmaxx simplifies your{' '}
+          <Box component="span" sx={{ color: '#f8b217', fontWeight: 600 }}>
+            eCommerce journey
+          </Box>
         </Typography>
         <Grid container spacing={4} alignItems="center">
           {/* Illustration */}
           <Grid item xs={12} md={6}>
-            <Box display="flex" justifyContent="center">
+            <Box display="flex" justifyContent="center" alignItems="center" sx={{ minHeight: "90%" }}>
               <img
                 src={cards[activeIndex].img}
                 alt={cards[activeIndex].alt}
-                style={{ maxWidth: '100%', height: 'auto' }}
+                style={{
+                  width: "80%",
+                  height: "80%",
+                  objectFit: 'contain',
+                  borderRadius: 24,
+                  background: '#fff',
+                }}
               />
             </Box>
           </Grid>
           {/* Cards */}
           <Grid item xs={12} md={6}>
-            <Box display="flex" flexDirection="column" gap={3}>
+            <Box
+              display="flex"
+              flexDirection="column"
+              gap={4}
+              sx={{
+                minHeight: 420,
+                justifyContent: 'center',
+              }}
+            >
               {cards.map((card, idx) => (
                 <Box
                   key={card.key}
                   className={`feature-card${idx === activeIndex ? ' active' : ''}`}
                   sx={{
-                    background: idx === activeIndex && card.highlight ? '#FFB940' : '#fff',
-                    color: idx === activeIndex && card.highlight ? '#000' : 'inherit',
-                    boxShadow: idx === activeIndex ? '0 4px 16px rgba(0,0,0,0.08)' : '0 2px 8px rgba(0,0,0,0.04)',
+                    background: idx === activeIndex
+                      ? (card.highlight ? '#f8b217' : '#fff')
+                      : '#f7f7f7',
+                    color: idx === activeIndex
+                      ? (card.highlight ? '#fff' : '#222')
+                      : '#222',
+                    boxShadow: '0 4px 24px  #00000014',
                     cursor: 'pointer',
-                    borderRadius: '12px',
-                    padding: '20px 24px',
-                    transition: 'background 0.2s, box-shadow 0.2s',
+                    borderRadius: '24px',
+                    padding: '32px 36px',
+                    transition: 'background 0.3s cubic-bezier(.4,0,.2,1), color 0.3s cubic-bezier(.4,0,.2,1), transform 0.1s cubic-bezier(.4,0,.2,1)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    transform: idx === activeIndex ? 'scale(1.1)' : 'scale(1)',
+                    // zIndex: idx === activeIndex ? 2 : 1,
+                    position: 'relative',
                   }}
                   onClick={() => setActiveIndex(idx)}
                 >
@@ -80,9 +116,11 @@ const JourneySection = () => {
                     variant="h6"
                     className="feature-title"
                     sx={{
-                      fontWeight: 'bold',
+                      fontWeight: 700,
                       marginBottom: 1,
-                      color: idx === activeIndex && card.highlight ? '#000' : '#222',
+                      color: idx === activeIndex && card.highlight ? '#fff' : '#222',
+                      fontSize: '1.3rem',
+                      fontFamily: 'Inter, sans-serif',
                     }}
                   >
                     {card.title}
@@ -91,8 +129,10 @@ const JourneySection = () => {
                     variant="body1"
                     className="feature-description"
                     sx={{
-                      color: idx === activeIndex && card.highlight ? '#222' : '#666',
-                      fontWeight: idx === activeIndex ? 500 : 400,
+                      color: idx === activeIndex && card.highlight ? '#fff' : '#666',
+                      fontWeight: 400,
+                      fontSize: '0.8rem',
+                      fontFamily: 'Inter, sans-serif',
                     }}
                   >
                     {card.description}

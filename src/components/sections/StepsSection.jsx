@@ -63,7 +63,7 @@ const StepsSection = () => {
                   alt={step.title}
                   sx={{
                     width: 280,
-                    height: 240,
+                    height: 300,
                     mb: 2,
                     objectFit: 'contain',
                   }}
@@ -109,6 +109,7 @@ const StepsSection = () => {
               fontSize: '1rem',
               '&:hover': { background: '#FFA500' },
             }}
+            onClick={() => window.location.href = '/contact-us'}
           >
             Try Now
           </Button>

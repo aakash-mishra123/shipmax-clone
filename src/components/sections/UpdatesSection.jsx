@@ -84,6 +84,7 @@ const UpdatesSection = () => {
                 fontSize: '1rem',
                 '&:hover': { background: '#FFA500' },
               }}
+              onClick={() => window.location.href = '/contact-us'}
             >
               Try Now
             </Button>
