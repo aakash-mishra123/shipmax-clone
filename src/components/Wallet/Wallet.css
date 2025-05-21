@@ -1,0 +1,26 @@
+.wallet-container {
+  background-color: #f4f8fd;
+  min-height: calc(100vh - 120px);
+}
+
+.search-panel {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tab-panel {
+  background-color: white;
+  border-radius: 8px;
+  min-height: 300px;
+}
+
+/* Custom styles for dropdown icon positioning */
+.MuiInputAdornment-root .MuiSvgIcon-root {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+/* Override for tab indicator */
+.MuiTabs-indicator {
+  background-color: #f8b217 !important;
+}

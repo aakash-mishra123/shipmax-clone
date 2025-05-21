@@ -9,7 +9,6 @@ import img4 from '../../assets/images/miniWarehouse.png';
 import img5 from '../../assets/images/miniWarehouse.png';
 import img6 from '../../assets/images/miniWarehouse.png';
 import FinalCTASection from '../sections/FinalCTASection';
-
 const floatSections = [
     {
         img: img1,

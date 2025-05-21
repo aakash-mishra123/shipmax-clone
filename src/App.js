@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import ContactUsForm from './components/ContactUsForm';
 import Solution from './components/Solutions/Solutions';
 import CentralizedCatalogue from './components/Solutions/CentralizedCatalogue';
+import Wallet from './components/Wallet/Wallet'; // Add this import
 import './index.css';
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/contact-us" element={<ContactUsForm />} />
         <Route path="/solutions" element={<Solution />} />
         <Route path="/solutions/centralized-catalogue" element={<CentralizedCatalogue />} />
+        <Route path="/wallet" element={<Wallet />} /> {/* Add this route */}
       </Routes>
       <Footer />
     </Router>
