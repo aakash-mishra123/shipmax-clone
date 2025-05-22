@@ -1,5 +1,5 @@
 import { Box, Container, Dialog, Paper, Grid, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from "../assets/shipmaxx-logo.png";
 import { useState } from 'react';
 import { FaMapMarkedAlt, FaCubes, FaShippingFast, FaListAlt, FaWarehouse, FaProjectDiagram, FaLayerGroup, FaRetweet, FaBalanceScale } from 'react-icons/fa';
@@ -55,6 +55,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [openCompany, setOpenCompany] = useState(false);
   const [openFAQ, setOpenFAQ] = useState(false);
+  const navigate = useNavigate();
 
   const solutions = [
     { icon: <FaMapMarkedAlt color="#f8b217" size={28} />, label: "Pan India Delivery" },
@@ -193,14 +194,18 @@ export default function Navbar() {
           }}>
             Try Now
           </Link>
-          <Link to="/signup" style={{
-            textDecoration: 'none',
-            color: '#000000',
-            fontWeight: 600,
-            padding: '8px 24px',
-            borderRadius: '6px',
-            backgroundColor: '#FFC85E'
-          }}>
+          <Link 
+            onClick={() => navigate('/auth/login')} 
+            style={{
+              textDecoration: 'none',
+              color: '#000000',
+              fontWeight: 600,
+              padding: '8px 24px',
+              borderRadius: '6px',
+              backgroundColor: '#FFC85E',
+              cursor: 'pointer'
+            }}
+          >
             Log In
           </Link>
         </Box>

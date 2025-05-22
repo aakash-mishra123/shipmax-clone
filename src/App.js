@@ -6,6 +6,7 @@ import ContactUsForm from './components/ContactUsForm';
 import Solution from './components/Solutions/Solutions';
 import CentralizedCatalogue from './components/Solutions/CentralizedCatalogue';
 import Wallet from './components/Wallet/Wallet'; // Add this import
+import AdminRoutes from './routes/AdminRoutes';
 import './index.css';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/solutions" element={<Solution />} />
         <Route path="/solutions/centralized-catalogue" element={<CentralizedCatalogue />} />
         <Route path="/wallet" element={<Wallet />} /> {/* Add this route */}
+        <Route path="/auth/*" element={<AdminRoutes />} />
       </Routes>
       <Footer />
     </Router>
